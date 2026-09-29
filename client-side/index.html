@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal web Fachri Bima Ibrahim, mahasiswa Sistem Informasi Telkom University">
+  <meta name="keywords" content="fachri bima ibrahim, personal web, telkom university, html, css">
+  <title>fachri.html</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='68' font-size='60' text-anchor='middle' fill='%239ece6a' font-family='monospace'>&lt;/&gt;</text></svg>">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+  <div class="titlebar">
+    <div class="traffic"><span></span><span></span><span></span></div>
+    <div class="tabs">
+      <span class="tab active">fachri.html</span>
+      <span class="tab">style.css</span>
+    </div>
+  </div>
+
+  <div class="workspace">
+    <aside class="gutter" id="gutter" aria-hidden="true"></aside>
+
+    <main class="pane">
+      <header class="intro">
+        <img class="avatar" src="foto.jpeg" alt="Foto Fachri Bima Ibrahim">
+        <div class="intro-text">
+          <p class="comment">whoami?</p>
+          <h1 id="typed"></h1>
+          <h3 class="role">Mahasiswa Sistem Informasi, Fakultas Rekayasa Industri</h3>
+        </div>
+      </header>
+
+      <section class="block" id="about">
+        <h2><span class="comment-mark">// </span>tentang</h2>
+        <table>
+          <caption>data-mahasiswa.json</caption>  
+          <tr><th>nama</th><td>Fachri Bima Ibrahim</td></tr>
+          <tr><th>nim</th><td>102022530035</td></tr>
+          <tr><th>fakultas</th><td>Rekayasa Industri</td></tr>
+          <tr><th>program studi</th><td>Sistem Informasi</td></tr>
+          <tr><th>mata kuliah</th><td>Pengembangan Aplikasi Web</td></tr>
+        </table>
+      </section>
+
+      <section class="block" id="socials">
+        <h2><span class="comment-mark">// </span>socials</h2>
+        <ul class="links">
+          <li><a href="https://github.com/akusuperman" target="_blank"><span class="cmd">$</span> open github.com/akusuperman<span class="path">Ingfokan</span></a></li>
+          <li><a href="https://instagram.com/bbrahm_" target="_blank"><span class="cmd">$</span> open instagram.com/bbrahm_<span class="path">Follow Atuh</span></a></li>
+          <li><a href="https://linkedin.com/in/fachri-bima-ibrahim" target="_blank"><span class="cmd">$</span> open linkedin.com/in/fachri-bima-ibrahim<span class="path">Mutualkeun</span></a></li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <footer class="statusbar">
+    <span>NIM 102022530035</span>
+    <span class="spacer"></span>
+    <span>Assalamuallaikum Barudak</span>
+    <span>Tabuh sabaraha ayeuna? =</span>
+    <time id="clock" datetime="">--:--:--</time>
+  </footer>
+
+  <script>
+    (function typeName() {
+      var el = document.getElementById("typed");
+      var text = "Fachri Bima Ibrahim";
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduceMotion) { el.textContent = text; return; }
+      var i = 0;
+      (function tick() {
+        el.textContent = text.slice(0, i);
+        i++;
+        if (i <= text.length) setTimeout(tick, 45);
+      })();
+    })();
+
+    (function fillGutter() {
+      var gutter = document.getElementById("gutter");
+      var count = Math.ceil(document.querySelector(".pane").offsetHeight / 27);
+      var html = "";
+      for (var i = 1; i <= count; i++) html += "<span>" + i + "</span>";
+      gutter.innerHTML = html;
+    })();
+
+    (function tickClock() {
+      var el = document.getElementById("clock");
+      function update() {
+        var now = new Date();
+        var hh = String(now.getHours()).padStart(2, "0");
+        var mm = String(now.getMinutes()).padStart(2, "0");
+        var ss = String(now.getSeconds()).padStart(2, "0");
+        el.setAttribute("datetime", now.toISOString());
+        el.textContent = hh + ":" + mm + ":" + ss;
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
+</body>
+</html>
