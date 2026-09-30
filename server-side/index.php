@@ -1,8 +1,4 @@
 <?php
-// index.php — Studi Kasus Server Side #1
-// Jalankan lewat XAMPP: taruh folder ini di C:/xampp/htdocs/nama_folder/
-// lalu buka localhost/nama_folder di browser
-
 $nama     = "Fachri Bima Ibrahim";
 $nim      = "102022530035";
 $fakultas = "Rekayasa Industri";
